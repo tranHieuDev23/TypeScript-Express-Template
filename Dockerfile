@@ -1,5 +1,5 @@
 # Build stage
-FROM node:14.17.0-alpine AS build
+FROM node:14.17.3-alpine AS build
 # Install NodeJs dependencies
 WORKDIR /build
 COPY package.json ./
@@ -10,7 +10,7 @@ RUN npm run build
 RUN npm prune --production
 
 # Deploy stage
-FROM node:14.17.0-alpine
+FROM node:14.17.3-alpine
 # Create app directory
 WORKDIR /usr/src/app
 # Copy source from build to deploy
